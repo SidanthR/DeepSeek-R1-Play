@@ -23,7 +23,7 @@ clock = pygame.time.Clock()
 
 # Load images
 drone_img = pygame.image.load('drone.png')  # You need to have a drone image named 'drone.png'
-enemy_img = pygame.image.load('enemy2.png')  # You need to have an enemy drone image named 'enemy.png'
+enemy_img = pygame.image.load('enemy.png')  # You need to have an enemy drone image named 'enemy.png'
 
 # drone class
 class Drone:

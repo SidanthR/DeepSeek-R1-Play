@@ -12,21 +12,21 @@ HEIGHT = 600
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
-GREEN = (0, 255, 0)
+BACKGROUND_COLOR = (198, 197, 232)
 
 # Create the screen
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Car Race Game")
+pygame.display.set_caption("Drone Game")
 
 # Clock
 clock = pygame.time.Clock()
 
 # Load images
-car_img = pygame.image.load('car.png')  # You need to have a car image named 'car.png'
-enemy_img = pygame.image.load('enemy.png')  # You need to have an enemy car image named 'enemy.png'
+drone_img = pygame.image.load('drone.png')  # You need to have a drone image named 'drone.png'
+enemy_img = pygame.image.load('enemy2.png')  # You need to have an enemy drone image named 'enemy.png'
 
-# Car class
-class Car:
+# drone class
+class Drone:
     def __init__(self, x, y, img):
         self.x = x
         self.y = y
@@ -68,8 +68,8 @@ class Enemy:
             self.x = random.randint(0, WIDTH - self.width)
             self.speed = random.randint(3, 6)
 
-# Create player car
-player = Car(WIDTH // 2 - 25, HEIGHT - 100, car_img)
+# Create player drone
+player = Drone(WIDTH // 2 - 25, HEIGHT - 100, drone_img)
 
 # Create enemies
 enemies = [Enemy(random.randint(0, WIDTH - 50), random.randint(-HEIGHT, 0), enemy_img) for _ in range(5)]
@@ -82,7 +82,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    # Move player car
+    # Move player drone
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT]:
         player.move_left()
@@ -103,7 +103,7 @@ while running:
             running = False
 
     # Draw everything
-    screen.fill(GREEN)
+    screen.fill(BACKGROUND_COLOR)
     player.draw()
     for enemy in enemies:
         enemy.draw()
